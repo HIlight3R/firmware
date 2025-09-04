@@ -558,7 +558,7 @@ void RadioInterface::applyModemConfig()
 
     power = loraConfig.tx_power;
 
-    if ((power == 0) || ((power > myRegion->powerLimit) && !devicestate.owner.is_licensed))
+    if ((power == 0) || ((power > myRegion->powerLimit) && !devicestate.owner.is_licensed && LIMIT_TX_POWER))
         power = myRegion->powerLimit;
 
     if (power == 0)
@@ -641,7 +641,7 @@ void RadioInterface::limitPower(int8_t loraMaxPower)
     if (myRegion->powerLimit)
         maxPower = myRegion->powerLimit;
 
-    if ((power > maxPower) && !devicestate.owner.is_licensed) {
+    if ((power > maxPower) && !devicestate.owner.is_licensed && LIMIT_TX_POWER) {
         LOG_INFO("Lower transmit power because of regulatory limits");
         power = maxPower;
     }
