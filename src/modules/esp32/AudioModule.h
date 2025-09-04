@@ -13,6 +13,8 @@
 #include <driver/i2s.h>
 #include <functional>
 
+#define LIMIT_AUDIO 0 // disable audio regional limits
+
 enum RadioState { standby, rx, tx };
 
 const char c2_magic[3] = {0xc0, 0xde, 0xc2}; // Magic number for codec2 header

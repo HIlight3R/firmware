@@ -56,9 +56,19 @@ void setupNicheGraphics()
     inkhud->setDisplayResilience(10, 1.5);
 
     // Select fonts
+#ifdef INKHUD_FONTS_WIN1250
+    InkHUD::Applet::fontLarge = FREESANS_12PT_WIN1250;
+    InkHUD::Applet::fontMedium = FREESANS_9PT_WIN1250;
+    InkHUD::Applet::fontSmall = FREESANS_6PT_WIN1250;
+#elifdef INKHUD_FONTS_WIN1251
+    InkHUD::Applet::fontLarge = FREESANS_12PT_WIN1251;
+    InkHUD::Applet::fontMedium = FREESANS_9PT_WIN1251;
+    InkHUD::Applet::fontSmall = FREESANS_6PT_WIN1251;
+#else
     InkHUD::Applet::fontLarge = FREESANS_12PT_WIN1252;
     InkHUD::Applet::fontMedium = FREESANS_9PT_WIN1252;
     InkHUD::Applet::fontSmall = FREESANS_6PT_WIN1252;
+#endif
 
     // Customize default settings
     inkhud->persistence->settings.userTiles.maxCount = 2;              // Two applets side-by-side
@@ -75,6 +85,12 @@ void setupNicheGraphics()
     inkhud->addApplet("DMs", new InkHUD::DMApplet);                              // -
     inkhud->addApplet("Channel 0", new InkHUD::ThreadedMessageApplet(0));        // -
     inkhud->addApplet("Channel 1", new InkHUD::ThreadedMessageApplet(1));        // -
+    inkhud->addApplet("Channel 2", new InkHUD::ThreadedMessageApplet(2));        // -
+    inkhud->addApplet("Channel 3", new InkHUD::ThreadedMessageApplet(3));        // -
+    inkhud->addApplet("Channel 4", new InkHUD::ThreadedMessageApplet(4));        // -
+    inkhud->addApplet("Channel 5", new InkHUD::ThreadedMessageApplet(5));        // -
+    inkhud->addApplet("Channel 6", new InkHUD::ThreadedMessageApplet(6));        // -
+    inkhud->addApplet("Channel 7", new InkHUD::ThreadedMessageApplet(7));        // -
     inkhud->addApplet("Positions", new InkHUD::PositionsApplet, true);           // Activated
     inkhud->addApplet("Recents List", new InkHUD::RecentsListApplet);            // -
     inkhud->addApplet("Heard", new InkHUD::HeardApplet, true, false, 0);         // Activated, no autoshow, default on tile 0
