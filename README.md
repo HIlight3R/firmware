@@ -1,7 +1,7 @@
 <div align="center" markdown="1">
 
 <img src=".github/meshtastic_logo.png" alt="Meshtastic Logo" width="80"/>
-<h1>Meshtastic Firmware</h1>
+<h1>Meshtastic Firmware Unlimited</h1>
 
 ![GitHub release downloads](https://img.shields.io/github/downloads/meshtastic/firmware/total)
 [![CI](https://img.shields.io/github/actions/workflow/status/meshtastic/firmware/main_matrix.yml?branch=master&label=actions&logo=github&color=yellow)](https://github.com/meshtastic/firmware/actions/workflows/ci.yml)
@@ -21,9 +21,22 @@
 	<a href="https://meshtastic.org/docs/">Documentation</a>
 </div>
 
+---
+
+## Changes compared to the official firmware
+> [!WARNING]
+> This is a modified firmware that if configured incorrectly may violate the laws of your country or damage your equipment. Use at your own risk, the author does not bear any responsibility.
+- TX power is limited only by hardware for all regions.
+- Audio now permitted for all regions.
+- Separated build environments for Windows-1250 and Windows-1251 locales for every device using InkHUD.
+- Separated build environments for every available OLED language.
+- Included additional Channel (2-7) applets for InkHUD.
+
+---
+
 ## Overview
 
-This repository contains the official device firmware for Meshtastic, an open-source LoRa mesh networking project designed for long-range, low-power communication without relying on internet or cellular infrastructure. The firmware supports various hardware platforms, including ESP32, nRF52, RP2040/RP2350, and Linux-based devices.
+This repository contains unlimited version of the official device firmware for Meshtastic, an open-source LoRa mesh networking project designed for long-range, low-power communication without relying on internet or cellular infrastructure. The firmware supports various hardware platforms, including ESP32, nRF52, RP2040/RP2350, and Linux-based devices.
 
 Meshtastic enables text messaging, location sharing, and telemetry over a decentralized mesh network, making it ideal for outdoor adventures, emergency preparedness, and remote operations.
 
