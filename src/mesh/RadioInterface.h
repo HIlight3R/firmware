@@ -19,6 +19,8 @@
 #define PACKET_FLAGS_HOP_START_MASK 0xE0
 #define PACKET_FLAGS_HOP_START_SHIFT 5
 
+#define LIMIT_TX_POWER 0 // disable tx power regional limits
+
 /**
  * This structure has to exactly match the wire layout when sent over the radio link.  Used to keep compatibility
  * with the old radiohead implementation.
