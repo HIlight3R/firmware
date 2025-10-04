@@ -516,6 +516,7 @@ bool GPS::setup()
                 }
             }
             // Rare Serial Speeds
+#ifndef CONFIG_IDF_TARGET_ESP32C6
             if (probeTries == GPS_PROBETRIES) {
                 LOG_DEBUG("Probe for GPS at %d", rareSerialSpeeds[speedSelect]);
                 gnssModel = probe(rareSerialSpeeds[speedSelect]);
@@ -526,6 +527,7 @@ bool GPS::setup()
                     }
                 }
             }
+#endif
         }
 
         if (gnssModel != GNSS_MODEL_UNKNOWN) {
@@ -1100,11 +1102,6 @@ int32_t GPS::runOnce()
         }
         GPSInitFinished = true;
         publishUpdate();
-    }
-
-    // Repeaters have no need for GPS
-    if (config.device.role == meshtastic_Config_DeviceConfig_Role_REPEATER) {
-        return disable();
     }
 
     if (whileActive()) {
